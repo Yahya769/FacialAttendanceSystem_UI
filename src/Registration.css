@@ -1,0 +1,435 @@
+/* ── Registration Page ────────────────────────────────── */
+.reg-page {
+  width: 100vw;
+  min-height: 100vh;
+  background: #07071a;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem 1rem 3rem;
+  overflow-y: auto;
+}
+
+.reg-card {
+  width: 100%;
+  max-width: 680px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(165, 180, 252, 0.12);
+  border-radius: 18px;
+  padding: 2.25rem 2.5rem;
+  color: #e2e8ff;
+  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Header ───────────────────────────────────────────── */
+.reg-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.btn-back-icon {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #a5b4fc;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 4px;
+  transition: background 0.2s;
+}
+.btn-back-icon:hover { background: rgba(99, 102, 241, 0.2); }
+
+.reg-title {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.2rem;
+  letter-spacing: -0.01em;
+}
+
+.reg-subtitle {
+  font-size: 0.85rem;
+  color: #7888aa;
+  margin: 0;
+}
+
+/* ── Section Labels ───────────────────────────────────── */
+.section-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #a5b4fc;
+  margin: 1.75rem 0 0.85rem;
+}
+
+.section-label:first-of-type { margin-top: 0; }
+
+/* ── Name Grid ────────────────────────────────────────── */
+.name-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.85rem;
+}
+
+@media (max-width: 560px) {
+  .name-grid { grid-template-columns: 1fr; }
+  .reg-card { padding: 1.5rem 1.25rem; }
+}
+
+/* ── Field Group ──────────────────────────────────────── */
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #9aa8c8;
+  letter-spacing: 0.02em;
+}
+
+.field-group input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 0.6rem 0.85rem;
+  font-size: 0.9rem;
+  color: #e2e8ff;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  width: 100%;
+}
+
+.field-group input::placeholder { color: #3d4a66; }
+
+.field-group input:focus {
+  border-color: rgba(165, 180, 252, 0.5);
+  background: rgba(99, 102, 241, 0.08);
+}
+
+.field-group input.input-error {
+  border-color: rgba(248, 113, 113, 0.6);
+  background: rgba(248, 113, 113, 0.05);
+}
+
+/* ── Labels extras ────────────────────────────────────── */
+.req { color: #f87171; margin-left: 2px; }
+.optional { font-size: 0.7rem; font-weight: 400; color: #4a5a7a; margin-left: 4px; }
+
+/* ── User ID ──────────────────────────────────────────── */
+.uid-field { margin-bottom: 0.25rem; }
+
+.uid-hint {
+  font-weight: 400;
+  font-size: 0.7rem;
+  color: #4a5a7a;
+  text-transform: none;
+  letter-spacing: 0;
+  margin-left: 4px;
+}
+
+.uid-input-wrap {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.uid-input-wrap:focus-within {
+  border-color: rgba(165, 180, 252, 0.5);
+  background: rgba(99, 102, 241, 0.08);
+}
+
+.uid-prefix {
+  padding: 0 0.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #6366f1;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  line-height: 1;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
+.uid-input-wrap input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 0.6rem 0.85rem;
+  font-size: 0.9rem;
+  color: #e2e8ff;
+  outline: none;
+}
+
+.uid-input-wrap input::placeholder { color: #3d4a66; }
+
+.uid-input-wrap input.input-error { background: rgba(248, 113, 113, 0.05); }
+
+.uid-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.3rem;
+}
+
+.field-hint {
+  font-size: 0.75rem;
+  color: #4a5a7a;
+}
+
+.char-count {
+  font-size: 0.72rem;
+  color: #4a5a7a;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Error ────────────────────────────────────────────── */
+.error-msg {
+  font-size: 0.75rem;
+  color: #f87171;
+}
+
+.face-error {
+  display: block;
+  margin-top: 0.5rem;
+}
+
+/* ── Face Upload Zone ─────────────────────────────────── */
+.face-upload-zone {
+  border: 2px dashed rgba(165, 180, 252, 0.25);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.face-upload-zone:hover,
+.face-upload-zone.drag-active {
+  border-color: rgba(165, 180, 252, 0.6);
+  background: rgba(99, 102, 241, 0.06);
+}
+
+.face-upload-zone.zone-error {
+  border-color: rgba(248, 113, 113, 0.5);
+}
+
+.upload-icon { font-size: 2rem; margin-bottom: 0.6rem; }
+.upload-main { font-size: 0.9rem; color: #c0ccee; font-weight: 500; margin-bottom: 0.3rem; }
+.upload-sub { font-size: 0.78rem; color: #4a5a7a; }
+
+/* ── Or Divider ───────────────────────────────────────── */
+.face-or-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.9rem 0;
+  color: #3d4a66;
+  font-size: 0.8rem;
+}
+.or-line { flex: 1; height: 1px; background: rgba(255,255,255,0.06); }
+
+/* ── Camera Button ────────────────────────────────────── */
+.btn-camera {
+  width: 100%;
+  padding: 0.65rem;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1.5px solid rgba(165, 180, 252, 0.25);
+  border-radius: 8px;
+  color: #a5b4fc;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-camera:hover { background: rgba(99, 102, 241, 0.2); }
+
+/* ── Camera Feed ──────────────────────────────────────── */
+.camera-wrap {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1.5px solid rgba(165, 180, 252, 0.2);
+}
+
+.camera-feed {
+  width: 100%;
+  display: block;
+  max-height: 320px;
+  object-fit: cover;
+  background: #000;
+}
+
+.camera-actions {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.btn-capture {
+  flex: 1;
+  padding: 0.6rem;
+  background: rgba(99, 102, 241, 0.9);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-capture:hover { background: rgba(99, 102, 241, 1); }
+
+.btn-cancel-cam {
+  padding: 0.6rem 1.25rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  color: #aaa;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-cancel-cam:hover { background: rgba(248,113,113,0.12); color: #f87171; }
+
+/* ── Face Preview ─────────────────────────────────────── */
+.preview-wrap {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1.5px solid rgba(99, 241, 160, 0.3);
+  position: relative;
+}
+
+.face-preview {
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+.preview-overlay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 0.9rem;
+  background: rgba(0,0,0,0.5);
+}
+
+.preview-ok {
+  font-size: 0.82rem;
+  color: #6ee7b7;
+  font-weight: 600;
+}
+
+.btn-retake {
+  background: transparent;
+  border: 1px solid rgba(248,113,113,0.4);
+  color: #f87171;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-retake:hover { background: rgba(248,113,113,0.1); }
+
+/* ── Submit Button ────────────────────────────────────── */
+.btn-submit {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 0.8rem;
+  background: rgba(99, 102, 241, 0.9);
+  border: 1.5px solid rgba(165, 180, 252, 0.4);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+}
+.btn-submit:hover {
+  background: rgba(99, 102, 241, 1);
+  box-shadow: 0 4px 24px rgba(99, 102, 241, 0.45);
+}
+.btn-submit:active { transform: scale(0.98); }
+
+/* ── Success Screen ───────────────────────────────────── */
+.reg-success {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(165, 180, 252, 0.12);
+  border-radius: 18px;
+  padding: 3rem 2.5rem;
+  max-width: 420px;
+  width: 100%;
+  color: #e2e8ff;
+}
+
+.success-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(99, 241, 160, 0.15);
+  border: 2px solid rgba(99, 241, 160, 0.4);
+  border-radius: 50%;
+  font-size: 1.8rem;
+  color: #6ee7b7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+}
+
+.reg-success h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #fff;
+}
+
+.reg-success p {
+  color: #8899bb;
+  margin-bottom: 1.75rem;
+  line-height: 1.7;
+}
+
+.uid-badge {
+  display: inline-block;
+  background: rgba(99, 102, 241, 0.18);
+  border: 1px solid rgba(165, 180, 252, 0.3);
+  border-radius: 6px;
+  padding: 1px 10px;
+  font-size: 0.88rem;
+  color: #a5b4fc;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* ── Primary Button (reused in success) ───────────────── */
+.btn-primary {
+  padding: 0.65rem 2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(99, 102, 241, 0.85);
+  border: 1.5px solid rgba(165, 180, 252, 0.5);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: rgba(99, 102, 241, 1); }

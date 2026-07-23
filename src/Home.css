@@ -1,0 +1,223 @@
+/* ── Reset & Base ─────────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ── Home Container ───────────────────────────────────── */
+.home-container {
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* subtle dark gradient on left side so text is readable */
+.home-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(5, 5, 25, 0.75) 0%,
+    rgba(5, 5, 25, 0.45) 50%,
+    rgba(5, 5, 25, 0.05) 100%
+  );
+  z-index: 0;
+}
+
+/* ── Content Block ────────────────────────────────────── */
+.home-content {
+  position: relative;
+  z-index: 1;
+  padding-left: 8vw;
+  max-width: 600px;
+
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.home-content--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Tag ──────────────────────────────────────────────── */
+.home-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #a5b4fc;
+  border: 1px solid rgba(165, 180, 252, 0.35);
+  border-radius: 20px;
+  padding: 4px 14px;
+  margin-bottom: 1.25rem;
+  backdrop-filter: blur(4px);
+  background: rgba(99, 102, 241, 0.12);
+}
+
+/* ── Title ────────────────────────────────────────────── */
+.home-title {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.home-title-accent {
+  color: #a5b4fc;
+}
+
+/* ── Subtitle ─────────────────────────────────────────── */
+.home-subtitle {
+  font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+  color: #b8c2e0;
+  margin-bottom: 2.25rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* ── Buttons ──────────────────────────────────────────── */
+.home-buttons {
+  display: flex;
+  gap: 0.85rem;
+  margin-bottom: 2.5rem;
+}
+
+.btn-primary {
+  padding: 0.65rem 2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(99, 102, 241, 0.9);
+  border: 1.5px solid rgba(165, 180, 252, 0.5);
+  border-radius: 8px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  letter-spacing: 0.02em;
+}
+
+.btn-primary:hover {
+  background: rgba(99, 102, 241, 1);
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.45);
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+.btn-secondary {
+  padding: 0.65rem 2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e2e8ff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background 0.2s ease, transform 0.1s ease;
+  letter-spacing: 0.02em;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.btn-secondary:active {
+  transform: scale(0.97);
+}
+
+/* ── Stats Row ────────────────────────────────────────── */
+.home-stats {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stat-value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.stat-label {
+  font-size: 0.72rem;
+  color: #8899bb;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ── Secondary Pages ──────────────────────────────────── */
+.secondary-page {
+  width: 100vw;
+  height: 100vh;
+  background: #080818;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.secondary-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2.5rem 3rem;
+  text-align: center;
+  color: #ffffff;
+}
+
+.secondary-card h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #a5b4fc;
+}
+
+.secondary-card p {
+  color: #8899bb;
+  margin-bottom: 1.75rem;
+}
+
+.btn-back {
+  background: transparent;
+  border: 1px solid rgba(165, 180, 252, 0.4);
+  color: #a5b4fc;
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.btn-back:hover {
+  background: rgba(99, 102, 241, 0.15);
+}
