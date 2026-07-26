@@ -4,6 +4,7 @@ import './Login.css'
 function Login({ onBack }) {
   const [phase, setPhase] = useState('intro')      // intro | scanning | verifying | success | error
   const [userData, setUserData] = useState(null)
+  const [attendanceData, setAttendanceData] = useState(null)
   const [errorMsg, setErrorMsg] = useState('')
   const [countdown, setCountdown] = useState(3)
 
@@ -70,13 +71,14 @@ function Login({ onBack }) {
     setPhase('verifying')
 
     canvas.toBlob(async (blob) => {
-      const formData = new FormData()
-      formData.append('face_image', new File([blob], 'login_face.jpg', { type: 'image/jpeg' }))
-
       try {
+        // ── Step 1: verify identity ───────────────────
+        const loginFormData = new FormData()
+        loginFormData.append('face_image', new File([blob], 'login_face.jpg', { type: 'image/jpeg' }))
+
         const res = await fetch('http://localhost:8000/auth/login-face', {
           method: 'POST',
-          body: formData,
+          body: loginFormData,
         })
 
         const result = await res.json()
@@ -88,6 +90,25 @@ function Login({ onBack }) {
         }
 
         setUserData(result)
+
+        // ── Step 2: actually mark attendance ──────────
+        const attendanceFormData = new FormData()
+        attendanceFormData.append('face_image', new File([blob], 'attendance_face.jpg', { type: 'image/jpeg' }))
+
+        const attendanceRes = await fetch('http://localhost:8000/attendance/mark', {
+          method: 'POST',
+          body: attendanceFormData,
+        })
+
+        const attendanceResult = await attendanceRes.json()
+
+        if (!attendanceRes.ok) {
+          setErrorMsg(attendanceResult.detail || 'Login succeeded but attendance could not be marked.')
+          setPhase('error')
+          return
+        }
+
+        setAttendanceData(attendanceResult)
         setPhase('success')
 
       } catch (err) {
@@ -233,9 +254,12 @@ function Login({ onBack }) {
               {userData.first_name} {userData.middle_name ? userData.middle_name + ' ' : ''}{userData.last_name}
             </p>
             <span className="uid-badge">#{userData.user_id}</span>
-            <p className="success-time">
-              Attendance marked at {new Date().toLocaleTimeString()}
-            </p>
+            {attendanceData && (
+              <p className="success-time">
+                Attendance {attendanceData.status} at{' '}
+                {new Date(attendanceData.timestamp + 'Z').toLocaleTimeString()}
+              </p>
+            )}
             <button className="btn-submit" onClick={onBack}>
               Go to Home
             </button>
