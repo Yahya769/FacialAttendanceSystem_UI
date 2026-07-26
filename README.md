@@ -13,13 +13,12 @@ To provide a simple, contactless UI where a user can:
 
 ## Required Libraries
 
-<<<<<<< HEAD
-| Library | Purpose |
+| Library               | Purpose                                          |
 | --------------------- | ------------------------------------------------ |
-| `react` / `react-dom` | Core UI framework |
-| `vite` | Dev server / build tool |
-| `axios` (or `fetch`) | Sending captured photos to the FastAPI backend |
-| `react-router-dom` | Navigation between registration/attendance pages |
+| `react` / `react-dom` | Core UI framework                                |
+| `vite`                | Dev server / build tool                          |
+| `axios` (or `fetch`)  | Sending captured photos to the FastAPI backend   |
+| `react-router-dom`    | Navigation between registration/attendance pages |
 
 ## Installation Steps
 
