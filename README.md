@@ -18,7 +18,7 @@ To provide a simple, contactless UI where a user can:
 | `react` / `react-dom`          | Core UI framework                                |
 | `vite`                         | Dev server / build tool                          |
 | `axios` (or `fetch`)           | Sending captured photos to the FastAPI backend   |
-| `react-router-dom` _(if used)_ | Navigation between registration/attendance pages |
+| `react-router-dom`             | Navigation between registration/attendance pages |
 
 > Confirm against your actual `package.json` — add/remove rows above to
 > match the dependencies your project actually uses (e.g. a webcam
