@@ -190,7 +190,7 @@ function Registration({ onBack }) {
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleChange}
-                placeholder="e.g. Yahya"
+                placeholder="FirstName"
                 className={errors.firstName ? 'input-error' : ''}
               />
               {errors.firstName && <span className="error-msg">{errors.firstName}</span>}
@@ -203,7 +203,7 @@ function Registration({ onBack }) {
                 name="middleName"
                 value={formData.middleName}
                 onChange={handleChange}
-                placeholder="e.g. Ahmed"
+                placeholder="MiddleName"
               />
             </div>
 
@@ -214,7 +214,7 @@ function Registration({ onBack }) {
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleChange}
-                placeholder="e.g. Khan"
+                placeholder="LastName"
                 className={errors.lastName ? 'input-error' : ''}
               />
               {errors.lastName && <span className="error-msg">{errors.lastName}</span>}
@@ -235,7 +235,7 @@ function Registration({ onBack }) {
                 name="userID"
                 value={formData.userID}
                 onChange={handleChange}
-                placeholder="e.g. yahya_001"
+                placeholder="e.g. B2XXXXXXX"
                 className={errors.userID ? 'input-error' : ''}
                 maxLength={20}
               />
